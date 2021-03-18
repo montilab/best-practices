@@ -1,0 +1,150 @@
+---
+output: rmarkdown::github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r echo=FALSE, message=FALSE}
+knitr::opts_chunk$set(message=FALSE, comment="#>")
+```
+
+# Shared Computing Cluster (SCC)
+
+## Browser R Studio
+
+Access the SCC through R Studio in your browser via [SCC On Demand](https://scc-ondemand.bu.edu/pun/sys/dashboard).
+
+## Available Modules
+
+If you need an existing software tool, you can import modules [already installed on the cluster](http://sccsvc.bu.edu/software/#/).
+
+```
+module load R/3.6.0
+```
+
+## Submitting Jobs
+
+Whenever you submit a job, your must choose a project `-P` that you're a member of. 
+
+Submit basic qsub job
+```bash
+qsub -P montilab -e std.err -o std.out run.qsub
+```
+
+Join stderr and stdout
+```bash
+qsub -P montilab -o std.out -j y run.qsub
+```
+
+Submit qsub job with more resources. Here you can see the [available resources](https://www.bu.edu/tech/support/research/computing-resources/tech-summary/).
+```
+qsub -P montilab -l h_rt=96:00:00 -l mem_total=94G -pe omp 16 -o std.out -j y run.qsub
+```
+
+Sometimes it's easier to work in an interactive qsub
+```
+qrsh -P montilab-p -l h_rt=24:00:00 -pe omp 4
+```
+
+## File permissions
+
+Be aware of what permissions you set on your personal files
+
+```
+chmod 444 sample.txt # owner | r    /  other | r
+chmod 700 sample.txt # owner | rwx  /  other |
+chmod 744 sample.txt # owner | rwx  /  other | r
+chmod 777 sample.txt # owner | rwx  /  other | rwx
+```
+
+You can modify permissions of lots of files within directories like this
+
+```
+find ./ -type f -exec chmod 644 {} \;
+find ./ -type d -exec chmod 755 {} \;
+```
+
+## Installing R Packages
+
+The SCC supports various R packages that are commonly used by BU researchers. If you want to use an unsupported R package on the SCC, you need to install it locally somewhere. We’ve setup a repository of packages in the montilab-p project but you'll probably want your own personal directory.
+
+`/restricted/projectnb/montilab-p/personal/yourname/R_pkgs`
+
+Subdirectories within this folder are separated by the CentOS and R versions being used. Most users (at the time of writing) will be using CentOS7 and Rv3.6.0, therefore packages should be installed and loaded from:
+
+`/restricted/projectnb/montilab-p/personal/yourname/R_pkgs/CentOS7/R_3.6.0`
+
+In the future, as new R versions are released/supported on the SCC, we will make new subdirectories as needed. It is important though to install and load R packages after you have loaded the correct version of R on the SCC via: module load R/3.6.0
+
+### Installing new packages
+```R
+module load R/3.6.0
+R
+lib.loc <- "/restricted/projectnb/montilab-p/personal/yourname/R_pkgs/CentOS7/R_3.6.0"
+
+# From Cran
+install.packages("package", lib=lib.loc)
+
+# From Bioconductor
+withr::with_libpaths(new=lib.loc, BiocManager::install("package"))
+
+# From Github
+withr::with_libpaths(new=lib.loc, install_github("username/repository"))
+
+# From source
+withr::with_libpaths(new=lib.loc, install.packages("/path/to/package.tar.gz", type="source"))
+```
+
+### Loading existing packages 
+```R
+module load R/3.6.0
+R
+library(survminer, lib.loc=lib.loc)
+```
+
+### Knitting Documents
+```bash
+$SCC_PANDOC_DIR # get the output of this
+module load pandoc/2.2.1
+R
+```
+
+```R
+Sys.setenv(RSTUDIO_PANDOC="/share/pkg/pandoc/2.2.1") # <- and put it in here
+rmarkdown::render('markdown.file.Rmd')
+```
+
+### Anaconda Environments
+
+At some point you're going to want something on the cluster that isn't pre-installed. A great way to install one or more tools in a reproducible way is through a conda environment. In a similar way as storing R pkgs, we can make a personal folder for conda environments.
+
+`/restricted/projectnb/montilab-p/personal/yourname/conda_envs`
+
+Now you'll need to export this path so conda knows where to look when your activating an environment. So update your `~/.bashrc` to set or change it:
+
+```bash
+SCC_CONDA_ENVS=/restricted/projectnb/montilab-p/personal/yourname/conda_envs
+export SCC_CONDA_ENVS
+```
+
+Now you can create an environment and install some tools. This is also useful for installing Python packages!
+
+```bash
+module load anaconda3
+conda create -n networks python=3.7
+source activate networks
+
+conda install -c omgarcia gcc-6
+conda install libgcc
+conda install networkx
+conda install numpy
+```
+
+Now if I want to use the `networkx` Python package all I have to do in the future is the following:
+
+```python
+module load anaconda3
+source activate networks
+python
+import networkx as nx
+```
