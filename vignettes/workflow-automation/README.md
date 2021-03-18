@@ -176,11 +176,12 @@ the following.
 1.  Run `roxygen2::roxygenize()` to update help documentation
 2.  Run `devtools::check()` to makes sure the package builds and all
     tests pass
-3.  Run `BiocCheck::BiocCheck()` if you’re really ambitious
-4.  Run `pkgdown::build_site()` to update the usage documentation /
+3.  Run `devtools::spell_check()` to catch any spelling mistakes
+4.  Run `BiocCheck::BiocCheck()` if you’re really ambitious
+5.  Run `pkgdown::build_site()` to update the usage documentation /
     package landing site
-5.  Potentially rebuild your Docker Image
-6.  Push latest image to Docker hub
+6.  Potentially rebuild your Docker Image
+7.  Push latest image to Docker hub
 
 During development you can do this manually with each major change, but
 for maintaining large packages, this gets time consuming. Additionally,
