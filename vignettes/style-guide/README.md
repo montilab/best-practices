@@ -36,3 +36,5 @@ and adhere accordingly**.
   - Use the pipe function `%>%` instead of nested functions
   - If you need to refer to absolute paths on your device (e.g. private
     data) use `Sys.getenv(envar="")`
+  - Begin script imports with `library()` and use `require()` within
+    functions (if necessary)
