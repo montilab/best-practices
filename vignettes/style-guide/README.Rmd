@@ -32,3 +32,5 @@ Here are some basic tips for maintaining consistent coding style and formatting 
 - Use the pipe function `%>%` instead of nested functions
 - If you need to refer to absolute paths on your device (e.g. private data) use `Sys.getenv(envar="")`
 - Begin script imports with `library()` and use `require()` within functions (if necessary)
+
+Other rules worth considering: https://style.tidyverse.org/files.html

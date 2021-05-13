@@ -105,6 +105,18 @@ R
 library(survminer, lib.loc=lib.loc)
 ```
 
+> Sometimes you might need to manually ensure cores have access to these
+> local packages…
+
+``` r
+cores <- 32
+cl <- parallel::makeClusters(cores)
+registerDoParallel(cl)
+sh <- clusterCall(cl, function() {
+    library(survminer, lib.loc="path/to/R_pkgs")
+})
+```
+
 ### Knitting Documents
 
 ``` bash

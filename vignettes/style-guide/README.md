@@ -38,3 +38,5 @@ and adhere accordingly**.
     data) use `Sys.getenv(envar="")`
   - Begin script imports with `library()` and use `require()` within
     functions (if necessary)
+
+Other rules worth considering: <https://style.tidyverse.org/files.html>
