@@ -153,6 +153,8 @@ When you make updates to an R package, you ~~should~~ *could* always do the foll
 6. Potentially rebuild your Docker Image
 7. Push latest image to Docker hub
 
+Another interesting helper is `goodpractice::gp()` which will mostly suggest styling changes. You only really need to run this from time to time, otherwise it becomes redundant.
+
 During development you can do this manually with each major change, but for maintaining large packages, this gets time consuming. Additionally, and perhaps most importantly, you don't want Github Pages to read your landing site from the `/docs` folder on your main branch. When someone clones the repository, they probably don't want to download the documentation website. You should push the docs to a separate branch called `gh-pages`.  
 
 That's a lot of things, but don't worry because Github Workflows can automate all of this..

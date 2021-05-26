@@ -183,6 +183,10 @@ the following.
 6.  Potentially rebuild your Docker Image
 7.  Push latest image to Docker hub
 
+Another interesting helper is `goodpractice::gp()` which will mostly
+suggesting styling changes. You only really need to run this from time
+to time, otherwise it becomes redundant.
+
 During development you can do this manually with each major change, but
 for maintaining large packages, this gets time consuming. Additionally,
 and perhaps most importantly, you don’t want Github Pages to read your
