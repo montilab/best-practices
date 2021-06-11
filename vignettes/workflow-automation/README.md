@@ -19,7 +19,7 @@ tools that we use.
 
 ## Github Pages
 
-Github Pages is a free *static* web hosting offered by Github. Each
+[Github Pages](https://pages.github.com/) is a free *static* web hosting offered by Github. Each
 repository can have their own designated site. Static means all of the
 html, css, javascript, images, etc. are ready to be served. Github Pages
 itself does not provide you with a custom backend server (e.g. Github
