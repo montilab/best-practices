@@ -10,3 +10,9 @@
 
 #### 3. [Shared Computing Cluster](vignettes/shared-computing-cluster/README.md)
 *Getting started and navigating the Shared Computing Cluster (SCC)*
+
+#### 4. [Data Visualization](vignettes/data-visualization/README.md)
+*Helpers to consistently make high quality figures*
+
+#### 5. [Data Manipulation](vignettes/data-manipulation/README.md)
+*Introduction to data manipulation with tidyverse*

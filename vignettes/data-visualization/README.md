@@ -22,12 +22,12 @@ df
 ```
 
 ``` 
-  gene    group_a    group_b
-1    A  0.4595120  1.3224481
-2    B  0.3538147  0.5006603
-3    C -1.1244394  0.8899805
-4    D  1.1868586  2.1267076
-5    E -0.3816143 -0.3735585
+  gene    group_a      group_b
+1    A -0.6972680 -0.417259557
+2    B  1.7754121  1.302330980
+3    C  1.5335700 -1.341934660
+4    D  0.8914851 -0.001891696
+5    E  0.7081095 -1.630661212
 ```
 
 ``` r
@@ -37,17 +37,17 @@ df.melt
 ```
 
 ``` 
-   gene variable expression
-1     A  group_a  0.4595120
-2     B  group_a  0.3538147
-3     C  group_a -1.1244394
-4     D  group_a  1.1868586
-5     E  group_a -0.3816143
-6     A  group_b  1.3224481
-7     B  group_b  0.5006603
-8     C  group_b  0.8899805
-9     D  group_b  2.1267076
-10    E  group_b -0.3735585
+   gene variable   expression
+1     A  group_a -0.697267961
+2     B  group_a  1.775412134
+3     C  group_a  1.533569980
+4     D  group_a  0.891485100
+5     E  group_a  0.708109463
+6     A  group_b -0.417259557
+7     B  group_b  1.302330980
+8     C  group_b -1.341934660
+9     D  group_b -0.001891696
+10    E  group_b -1.630661212
 ```
 
 ``` r
@@ -72,24 +72,24 @@ data
 ```
 
     [[1]]
-      gene   group_a    group_b
-    1    A 0.3575976 -0.3879564
+      gene    group_a    group_b
+    1    A -0.8945131 -0.8808703
     
     [[2]]
-      gene   group_a   group_b
-    1    B -1.355808 0.6468155
+      gene   group_a    group_b
+    1    B -1.124154 -0.3345333
     
     [[3]]
-      gene   group_a  group_b
-    1    C -1.823562 2.603993
+      gene   group_a   group_b
+    1    C 0.6839342 0.4813096
     
     [[4]]
-      gene group_a   group_b
-    1    D 1.73746 -1.196148
+      gene   group_a  group_b
+    1    D -1.521016 1.446742
     
     [[5]]
-      gene   group_a     group_b
-    1    E 0.9651849 -0.08012841
+      gene    group_a   group_b
+    1    E -0.1137307 -2.521122
 
 ``` r
 # Fine
@@ -98,12 +98,12 @@ df
 ```
 
 ``` 
-  gene    group_a     group_b
-1    A  0.3575976 -0.38795638
-2    B -1.3558084  0.64681548
-3    C -1.8235624  2.60399264
-4    D  1.7374603 -1.19614782
-5    E  0.9651849 -0.08012841
+  gene    group_a    group_b
+1    A -0.8945131 -0.8808703
+2    B -1.1241535 -0.3345333
+3    C  0.6839342  0.4813096
+4    D -1.5210158  1.4467417
+5    E -0.1137307 -2.5211223
 ```
 
 ``` r
@@ -113,17 +113,17 @@ df.melt
 ```
 
 ``` 
-   gene variable  expression
-1     A  group_a  0.35759755
-2     B  group_a -1.35580840
-3     C  group_a -1.82356238
-4     D  group_a  1.73746031
-5     E  group_a  0.96518486
-6     A  group_b -0.38795638
-7     B  group_b  0.64681548
-8     C  group_b  2.60399264
-9     D  group_b -1.19614782
-10    E  group_b -0.08012841
+   gene variable expression
+1     A  group_a -0.8945131
+2     B  group_a -1.1241535
+3     C  group_a  0.6839342
+4     D  group_a -1.5210158
+5     E  group_a -0.1137307
+6     A  group_b -0.8808703
+7     B  group_b -0.3345333
+8     C  group_b  0.4813096
+9     D  group_b  1.4467417
+10    E  group_b -2.5211223
 ```
 
 # Style and Rendering
