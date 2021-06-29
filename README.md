@@ -6,7 +6,7 @@
 *Some tips for writing consistent and error-prone code at a high standard*
 
 #### 2. [Workflow Automation](vignettes/workflow-automation/README.md)
-*When and how to take advantage of Github / Docker workflow services*
+*R package development/documentation and Github + Docker workflow services*
 
 #### 3. [Shared Computing Cluster](vignettes/shared-computing-cluster/README.md)
 *Getting started and navigating the Shared Computing Cluster (SCC)*
