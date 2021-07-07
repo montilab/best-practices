@@ -19,7 +19,7 @@ tools that we use.
 
 ## Github Pages
 
-[Github Pages](https://pages.github.com/) is a free *static* web hosting offered by Github. Each
+Github Pages is a free *static* web hosting offered by Github. Each
 repository can have their own designated site. Static means all of the
 html, css, javascript, images, etc. are ready to be served. Github Pages
 itself does not provide you with a custom backend server (e.g. Github
@@ -184,8 +184,8 @@ the following.
 7.  Push latest image to Docker hub
 
 Another interesting helper is `goodpractice::gp()` which will mostly
-suggesting styling changes. You only really need to run this from time
-to time, otherwise it becomes redundant.
+suggest styling changes. You only really need to run this from time to
+time, otherwise it becomes redundant.
 
 During development you can do this manually with each major change, but
 for maintaining large packages, this gets time consuming. Additionally,
@@ -194,6 +194,26 @@ landing site from the `/docs` folder on your main branch. When someone
 clones the repository, they probably don’t want to download the
 documentation website. You should push the docs to a separate branch
 called `gh-pages`.
+
+### Bioconductor
+
+If your R package is also in Bioconductor, you’ll need to make sure
+you’re regularly pushing updates to the Bioc branch. Bioc will run
+their own build tests but you can try to reproduce their tests locally
+with something like this.
+
+``` r
+devtools::check(build_args=c("--no-build-vignettes"), args=c("--force-multiarch", "--timings"))
+```
+
+Once that passes, make sure you sync with Bioc dev branch
+
+``` bash
+git fetch --all
+git checkout master
+git merge upstream/master
+git push upstream master
+```
 
 That’s a lot of things, but don’t worry because Github Workflows can
 automate all of this..

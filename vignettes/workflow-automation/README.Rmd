@@ -157,6 +157,22 @@ Another interesting helper is `goodpractice::gp()` which will mostly suggest sty
 
 During development you can do this manually with each major change, but for maintaining large packages, this gets time consuming. Additionally, and perhaps most importantly, you don't want Github Pages to read your landing site from the `/docs` folder on your main branch. When someone clones the repository, they probably don't want to download the documentation website. You should push the docs to a separate branch called `gh-pages`.  
 
+### Bioconductor
+
+If your R package is also in Bioconductor, you'll need to make sure you're regularly pushing updates to the Bioc branch. Bioc will run their own build tests but you can try to reproduce their tests locally with something like this.
+
+```r
+devtools::check(build_args=c("--no-build-vignettes"), args=c("--force-multiarch", "--timings"))
+```
+
+Once that passes, make sure you sync with Bioc dev branch
+```bash
+git fetch --all
+git checkout master
+git merge upstream/master
+git push upstream master
+```
+
 That's a lot of things, but don't worry because Github Workflows can automate all of this..
 
 ```yml
