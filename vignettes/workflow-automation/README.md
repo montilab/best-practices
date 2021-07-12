@@ -200,7 +200,8 @@ called `gh-pages`.
 If your R package is also in Bioconductor, you’ll need to make sure
 you’re regularly pushing updates to the Bioc branch. Bioc will run
 their own build tests but you can try to reproduce their tests locally
-with something like this.
+with something like this. You can find the latest build settings
+[here](https://master.bioconductor.org/checkResults/3.13/bioc-LATEST/Renviron.bioc).
 
 ``` r
 devtools::check(build_args=c("--no-build-vignettes"), args=c("--force-multiarch", "--timings"))
