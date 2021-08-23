@@ -16,6 +16,7 @@ tools that we use.
 2.  Docker Images
 3.  Docker Hub
 4.  Github Workflows
+5.  Github Issues
 
 ## Github Pages
 
@@ -296,3 +297,29 @@ following.
 For pushing automatically to Docker Hub, we also have a dedicated Docker
 bot account to fill in `${{ secrets.DOCKER_USERNAME }}` and `${{
 secrets.DOCKER_PASSWORD }}`.
+
+### Github Issues
+
+Use Github Issues to communicate with users of your software/package.
+When you’re going back and forth with others use `reprex()` to share
+code snippets.
+
+    library(reprex)
+
+Write out your code example and then copy the entire thing.
+
+    x <- seq(1, 10)
+    mean(x)
+
+Then type `reprex()` into the console. It will create a markdown snippet
+with the input/output of each line of code and add it directly to your
+clipboard. You can then paste it into a Github comment.
+
+``` r
+x <- seq(1, 10)
+mean(x)
+#> [1] 5.5
+```
+
+<sup>Created on 2021-08-23 by the [reprex
+package](https://reprex.tidyverse.org) (v2.0.0)</sup>
