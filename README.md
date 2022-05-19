@@ -3,7 +3,7 @@
 ### Table of Contents
 
 #### 1. [Style Guide](vignettes/style-guide/README.md)
-*Some tips for writing consistent and error-prone code at a high standard*
+*Some tips for writing consistent and error-free code at a high standard*
 
 #### 2. [Workflow Automation](vignettes/workflow-automation/README.md)
 *R package development/documentation and Github + Docker workflow services*
