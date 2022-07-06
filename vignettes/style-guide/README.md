@@ -38,5 +38,6 @@ and adhere accordingly**.
     data) use `Sys.getenv(envar="")`
   - Begin script imports with `library()` and use `require()` within
     functions (if necessary)
+  - Avoid absolute indices in vector operations (e.g., _not_ `eset[,4:6]`, but `eset[,eset$pheno=="treatment"]`)
 
 Other rules worth considering: <https://style.tidyverse.org/files.html>
