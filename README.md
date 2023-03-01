@@ -16,3 +16,7 @@
 
 #### 5. [Data Manipulation](vignettes/data-manipulation/README.md)
 *Introduction to data manipulation with tidyverse*
+
+#### 6. [Code Complexity](vignettes/code-complexity/README.md)
+*Using cyclocomp R package to estimate and improve code complexity*
+
