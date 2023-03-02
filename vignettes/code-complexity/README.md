@@ -24,15 +24,12 @@ Functions that do not have any conditions or branches has complexity of
 library(cyclocomp)
 
 cyclocomp(
-  
-  
   my_summary <- function(x, y){
     ave.x <- mean(x, na.rm=T)
     ave.y <- mean(y, na.rm=T)
     xy.cor <- cor(x,y)
     c(ave_x = ave.x, ave_y = ave.y, xy_cor=xy.cor)
   }
-  
 )
 ```
 
@@ -42,12 +39,9 @@ An example with one `if()` statement
 
 ``` r
 cyclocomp(
-  
-  
   my_if <- function(x){
     if (any(is.na(x))) 0 else mean(x)
   }
-  
 )
 ```
 
@@ -57,10 +51,7 @@ More complex example with multiple conditions
 
 ``` r
 cyclocomp(
-  
-  
   my_if2 <- function(x){
-    
     if (any(is.na(x)) | length(x) < 1){
       print("Error message")
       return(NA)
@@ -70,7 +61,6 @@ cyclocomp(
     
     if ( res == 0 ) print("warning") else return(res)
   }
-  
 )
 ```
 
@@ -81,15 +71,11 @@ condition that needs to be checked while loop is executing
 
 ``` r
 cyclocomp(
-  
   my_for <- function(x){
-    
     for (i in seq_along(x)){
       x[i] <- x[i] * i + i
     }
-    
   }
-  
 )
 ```
 

@@ -26,40 +26,29 @@ Functions that do not have any conditions or branches has complexity of 1
 library(cyclocomp)
 
 cyclocomp(
-  
-  
   my_summary <- function(x, y){
     ave.x <- mean(x, na.rm=T)
     ave.y <- mean(y, na.rm=T)
     xy.cor <- cor(x,y)
     c(ave_x = ave.x, ave_y = ave.y, xy_cor=xy.cor)
   }
-  
 )
 ```
 
 An example with one `if()` statement
 ```{r}
-
 cyclocomp(
-  
-  
   my_if <- function(x){
     if (any(is.na(x))) 0 else mean(x)
   }
-  
 )
 ```
 
 
 More complex example with multiple conditions
 ```{r}
-
 cyclocomp(
-  
-  
   my_if2 <- function(x){
-    
     if (any(is.na(x)) | length(x) < 1){
       print("Error message")
       return(NA)
@@ -69,7 +58,6 @@ cyclocomp(
     
     if ( res == 0 ) print("warning") else return(res)
   }
-  
 )
 ```
 
@@ -77,17 +65,12 @@ Every loop adds additional complexity to the code as there is a condition
 that needs to be checked while loop is executing
 
 ```{r}
-
 cyclocomp(
-  
   my_for <- function(x){
-    
     for (i in seq_along(x)){
       x[i] <- x[i] * i + i
     }
-    
   }
-  
 )
 ```
 
@@ -95,7 +78,6 @@ cyclocomp(
 
 
 ```{r}
-
 cyclocomp_package("cyclocomp")
 ```
 If you are in the R project where you develop an R package, you can compute the 
@@ -103,7 +85,6 @@ project complexity using `cyclocomp_package_dir()` function:
 
 
 ```{r, eval=FALSE}
-
 cyclocomp_package_dir(path = ".")
 ```
 
