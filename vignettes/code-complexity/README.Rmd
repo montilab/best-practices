@@ -1,0 +1,110 @@
+---
+output: rmarkdown::github_document
+editor_options: 
+  chunk_output_type: console
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r echo=FALSE, message=FALSE}
+knitr::opts_chunk$set(message=FALSE, comment="")
+```
+
+# Cyclomatic Complexity of R (or any) Code
+
+Cyclomatic complexity is a measurement developed by Thomas McCabe in 1976 to determine the stability and level of confidence in a program. It measures the number of linearly-independent paths through a program module. Programs with lower Cyclomatic complexity are easier to understand and less risky to modify.
+
+The way Cyclomatic complexity is computed is explained [here](https://www.bbau.ac.in/dept/CS/TM/Cyclomatic.pdf)
+
+The recommended complexity value is 10 or below, though in some circumstances, complexity as high as 15 is considered acceptable.  
+
+
+# cyclocomp R package
+
+Functions that do not have any conditions or branches has complexity of 1
+```{r}
+library(cyclocomp)
+
+cyclocomp(
+  
+  
+  my_summary <- function(x, y){
+    ave.x <- mean(x, na.rm=T)
+    ave.y <- mean(y, na.rm=T)
+    xy.cor <- cor(x,y)
+    c(ave_x = ave.x, ave_y = ave.y, xy_cor=xy.cor)
+  }
+  
+)
+```
+
+An example with one if() statement
+```{r}
+
+cyclocomp(
+  
+  
+  my_if <- function(x){
+    if (any(is.na(x))) 0 else mean(x)
+  }
+  
+)
+```
+
+
+More complex example with multiple conditions
+```{r}
+
+cyclocomp(
+  
+  
+  my_if2 <- function(x){
+    
+    if (any(is.na(x)) | length(x) < 1){
+      print("Error message")
+      return(NA)
+    } else {
+      res <- mean(x)
+    }
+    
+    if ( res == 0 ) print("warning") else return(res)
+  }
+  
+)
+```
+
+Every loop adds additional complexity to the code as there is a condition 
+that needs to be checked while loop is executing
+
+```{r}
+
+cyclocomp(
+  
+  my_for <- function(x){
+    
+    for (i in seq_along(x)){
+      x[i] <- x[i] * i + i
+    }
+    
+  }
+  
+)
+```
+
+# Using cyclocomp R package for R packages
+
+
+```{r}
+
+cyclocomp_package("cyclocomp")
+```
+If you are in the R project where you develop an R package, you can compute the 
+project complexity using `cyclocomp_package_dir()` function:
+
+
+```{r, eval=FALSE}
+
+cyclocomp_package_dir(path = ".")
+```
+
+
