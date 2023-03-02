@@ -22,11 +22,7 @@ Functions that do not have any conditions or branches has complexity of
 
 ``` r
 library(cyclocomp)
-```
 
-    Warning: package 'cyclocomp' was built under R version 4.1.3
-
-``` r
 cyclocomp(
   
   
@@ -42,7 +38,7 @@ cyclocomp(
 
     [1] 1
 
-An example with one if() statement
+An example with one `if()` statement
 
 ``` r
 cyclocomp(

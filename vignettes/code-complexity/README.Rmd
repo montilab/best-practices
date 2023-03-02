@@ -22,7 +22,7 @@ The recommended complexity value is 10 or below, though in some circumstances, c
 # cyclocomp R package
 
 Functions that do not have any conditions or branches has complexity of 1
-```{r}
+```{r, warning=FALSE}
 library(cyclocomp)
 
 cyclocomp(
@@ -38,7 +38,7 @@ cyclocomp(
 )
 ```
 
-An example with one if() statement
+An example with one `if()` statement
 ```{r}
 
 cyclocomp(
