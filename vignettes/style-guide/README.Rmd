@@ -15,6 +15,7 @@ Here are some basic tips for maintaining consistent coding style and formatting 
 -------------------
 - Write in UTF-8
 - Always use 4 spaces for indentation (don't use tabs)
+  * in R, consider using the package <a href="https://styler.r-lib.org/">styler</a>
 - Try to limit line length to 120 characters
 - Use modular architecture to group similar functions etc. 
 - Always document your functions and objects with `roxygen2`
