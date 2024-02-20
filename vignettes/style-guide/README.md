@@ -22,7 +22,7 @@ and adhere accordingly**.
 - Always document your functions and objects with `roxygen2`
 - Instead of `@import dplyr` just import what the function needs
   `@importFrom dplyr filter`
-- Object definitions should always be uppercase and use `snake_case`
+- Object definitions should always be uppercase and use `Snake_Case`
 - Functions and variables should always be lowercase and use
   `snake_case`
 - Use `return` statements in your functions, don’t depend on R to infer
@@ -35,10 +35,11 @@ and adhere accordingly**.
 - Avoid using `1:10` - use `seq_len()` or `seq_along()`
 - Try to use `tidyverse` packages to manipulate data - particularly
   `magrittr`, `dplyr`, and `purrr`
-- Use the pipe function `%>%` instead of nested functions
-- If you need to refer to absolute paths on your device (e.g. private
-  data) use `Sys.getenv(envar="")`
+- Use the pipe function `%>%` (now superseded by native `|>`) instead of nested functions
+- If you need to refer to absolute paths on your device (e.g., private
+  data) use `Sys.getenv(envar = "")`
 - Begin script imports with `library()` and use `require()` within
   functions (if necessary)
+- Prepend package name to non-standard functions (e.g., `dplyr::select(...)` rather than `select(...)`).
 
 Other rules worth considering: <https://style.tidyverse.org/files.html>
