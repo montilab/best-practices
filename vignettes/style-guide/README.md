@@ -15,14 +15,14 @@ and adhere accordingly**.
 
 - Write in UTF-8
 - Always use 4 spaces for indentation (don’t use tabs)
-  - consider using the package
+  - in R, consider using the package
     <a href="https://styler.r-lib.org/">styler</a>
 - Try to limit line length to 120 characters
 - Use modular architecture to group similar functions etc.
 - Always document your functions and objects with `roxygen2`
 - Instead of `@import dplyr` just import what the function needs
   `@importFrom dplyr filter`
-- Object definitions should always be uppercase and use `Snake_Case`
+- Object definitions should always be uppercase and use `snake_case`
 - Functions and variables should always be lowercase and use
   `snake_case`
 - Use `return` statements in your functions, don’t depend on R to infer
@@ -35,12 +35,16 @@ and adhere accordingly**.
 - Avoid using `1:10` - use `seq_len()` or `seq_along()`
 - Try to use `tidyverse` packages to manipulate data - particularly
   `magrittr`, `dplyr`, and `purrr`
-- Use the pipe function `%>%` (now superseded by native `|>`) instead of nested functions
-- If you need to refer to absolute paths on your device (e.g., private
-  data) use `Sys.getenv(envar = "")`
+- Use the pipe function `%>%` instead of nested functions
+- If you need to refer to absolute paths on your device (e.g. private
+  data) use `Sys.getenv(envar="")`
 - Begin script imports with `library()` and use `require()` within
   functions (if necessary)
-- Prepend package name to non-standard functions (e.g., `dplyr::select(...)` rather than `select(...)`).
-- When calling a function, use `function(var_1 = value_1, ..., var_n = value_n)` rather than `function(value_1, ..., value_n)`. The second form relies on the argument order to be known and fixed, and may lead to errors if the called function changes.
+- When using structured objects (e.g., `ExpressionSet`) avoid
+  “extracting” fields for easier handling (e.g.,
+  `phenotype <- eset$phenotype`). The purpose of structured objects is
+  to ensure the different components (e.g., `pData()` rows and `exprs()`
+  columns) are always properly paired. By extracting these components,
+  you lose this pairing and it may lead to errors (mismatches).
 
 Other rules worth considering: <https://style.tidyverse.org/files.html>

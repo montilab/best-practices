@@ -33,5 +33,6 @@ Here are some basic tips for maintaining consistent coding style and formatting 
 - Use the pipe function `%>%` instead of nested functions
 - If you need to refer to absolute paths on your device (e.g. private data) use `Sys.getenv(envar="")`
 - Begin script imports with `library()` and use `require()` within functions (if necessary)
+- When using structured objects (e.g., `ExpressionSet`) avoid "extracting" fields for easier handling (e.g., `phenotype <- eset$phenotype`). The purpose of structured objects is to ensure the different components (e.g., `pData()` rows and `exprs()` columns) are always properly paired. By extracting these components, you lose this pairing and it may lead to errors (mismatches).
 
 Other rules worth considering: https://style.tidyverse.org/files.html
