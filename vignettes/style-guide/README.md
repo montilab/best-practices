@@ -40,6 +40,13 @@ and adhere accordingly**.
   data) use `Sys.getenv(envar="")`
 - Begin script imports with `library()` and use `require()` within
   functions (if necessary)
+- Prepend package name to non-standard functions (e.g.,
+  `dplyr::select(...)` rather than `select(...)`).
+- When calling a function, use
+  `function(var_1 = value_1, ..., var_n = value_n)` rather than
+  `function(value_1, ..., value_n)`. The second form relies on the
+  argument order to be known and fixed, and may lead to errors if the
+  called function changes.
 - When using structured objects (e.g., `ExpressionSet`) avoid
   “extracting” fields for easier handling (e.g.,
   `phenotype <- eset$phenotype`). The purpose of structured objects is

@@ -33,6 +33,8 @@ Here are some basic tips for maintaining consistent coding style and formatting 
 - Use the pipe function `%>%` instead of nested functions
 - If you need to refer to absolute paths on your device (e.g. private data) use `Sys.getenv(envar="")`
 - Begin script imports with `library()` and use `require()` within functions (if necessary)
+- Prepend package name to non-base functions (e.g., `dplyr::select(...)` rather than `select(...)`).
+- When calling a function, use `function(var_1 = value_1, ..., var_n = value_n)` rather than `function(value_1, ..., value_n)`. The second form relies on the argument order to be known and fixed, and may lead to errors if the called function changes.
 - When using structured objects (e.g., `ExpressionSet`) avoid "extracting" fields for easier handling (e.g., `phenotype <- eset$phenotype`). The purpose of structured objects is to ensure the different components (e.g., `pData()` rows and `exprs()` columns) are always properly paired. By extracting these components, you lose this pairing and it may lead to errors (mismatches).
 
 Other rules worth considering: https://style.tidyverse.org/files.html
